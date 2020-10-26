@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <div class="message">
+        123
+    </div>
+</body>
+</html>
+<script>
+    let xhr= new XMLHttpRequest();
+    xhr.open("get","https://hexschool.github.io/ajaxHomework/data.json",true);
+    xhr.send(null);
+    xhr.onload=function(){
+        console.log(xhr.responseText);
+        let str=JSON.parse(xhr.responseText);
+        document.querySelector('.message').textContent=str[0].name;
+    }
+</script>
